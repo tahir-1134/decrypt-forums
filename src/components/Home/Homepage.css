@@ -1,0 +1,30 @@
+/* .homepage * {
+  border: 1px solid #fff;
+} */
+
+.homepage {
+  display: flex;
+  margin-top: 5rem;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.brand > img {
+  width: 50vw;
+  margin-block: 50px;
+}
+
+.homepage__left {
+  margin-inline: auto;
+}
+/* 
+.homepage__left > h3 {
+  max-width: 30rem;
+} */
+
+@media only screen and (max-width: 900px) {
+  .brand > img {
+    width: 80vw;
+    margin-block: 50px;
+  }
+}

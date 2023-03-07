@@ -1,0 +1,31 @@
+.newsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+
+.newsHeader > h1 {
+    font-size: 30px;
+    font-weight: 200;
+}
+
+.newsHeader > button {
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.newsHeader__links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.newsHeader__links > *{
+    text-decoration: none;
+    color: white;
+}

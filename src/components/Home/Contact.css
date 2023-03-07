@@ -1,0 +1,23 @@
+/* .contact * {
+  border: 1px solid #fff;
+} */
+
+.contact {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact__element{
+  height: 3rem;
+  width: 20rem;
+  border-radius: 4px;
+}
+
+@media only screen and (max-width: 400px) {
+  .contact__element {
+    width: 80vw;
+  }
+}
