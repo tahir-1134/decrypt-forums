@@ -51,7 +51,7 @@ function Sidebar() {
       <div className="sidebar__stats">
         <div className="sidebar__stat">
           <p>Friends</p>
-          <p className="sidebar__statNumber">{currentUser?.data.friends.length}</p>
+          <p className="sidebar__statNumber">{currentUser?.data?.friends?.length}</p>
         </div>
         <div className="sidebar__stat">
           <p>Threads</p>

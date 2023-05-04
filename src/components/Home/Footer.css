@@ -12,12 +12,15 @@
     margin-block: 40px;
 }
 
-.joinUs > span > button {
+.joinUs__button{
     border: none;
     border-radius: 20px;
     padding-block: 10px;
     width: 100px;
     height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .copyright {

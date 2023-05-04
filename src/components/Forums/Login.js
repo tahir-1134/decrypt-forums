@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Login.css";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import {db, auth } from "./firebase";
+import { db, auth, provider } from "./firebase";
+import { signInWithPopup } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/userSlice";
 
@@ -15,16 +16,19 @@ function Login() {
 
   const loginToApp = (e) => {
     e.preventDefault();
-    auth.signInWithEmailAndPassword(email, password).then((userAuth) => {
-      dispatch(
-        login({
-          email: userAuth.user.email,
-          uid: userAuth.user.uid,
-          displayName: userAuth.user.displayName,
-          photoURL: userAuth.user.photoURL,
-        })
-      );
-    }).catch((error) => alert(error))
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: userAuth.user.displayName,
+            photoURL: userAuth.user.photoURL,
+          })
+        );
+      })
+      .catch((error) => alert(error));
   };
 
   const register = (e) => {
@@ -47,19 +51,30 @@ function Login() {
               })
             );
           });
-          db.collection("users").add({
-            name: name,
-            email: email,
-            photoURL: profilePic,
-            friends: [],
-            comments: [],
-            posts: [],
-            id: userAuth.user.uid,
-          });
+        db.collection("users").add({
+          name: name,
+          email: email,
+          photoURL: profilePic,
+          friends: [],
+          comments: [],
+          posts: [],
+          id: userAuth.user.uid,
+        });
       })
       .catch((error) => alert(error));
-
   };
+
+  const [value, setValue] = useState("");
+  function googleSignIn() {
+    signInWithPopup(auth, provider).then((data) => {
+      setValue(data.user.email);
+      localStorage.setItem("email", data.user.email);
+    });
+  }
+
+  useEffect(() => {
+    setValue(localStorage.getItem("email"));
+  });
 
   return (
     <div className="login">
@@ -74,11 +89,14 @@ function Login() {
               By continuing you indicate that you agree with Decrypt’s Terms of
               Service and Privacy Policy
             </p>
-            <button className="login__formButton">
+            <button onClick={googleSignIn} className="login__formButton">
               <GoogleIcon /> <span>Continue with Google</span>
             </button>
-            <button className="login__formButton">
-              <FacebookIcon /> <span>Continue with Facebook</span>
+            <button
+              className="login__formButton"
+              style={{ backgroundColor: "grey" }}
+            >
+              <FacebookIcon /> <span>(Unavailable)</span>
             </button>
           </div>
           <div className="login__formRight">

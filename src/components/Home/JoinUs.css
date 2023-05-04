@@ -1,0 +1,36 @@
+.journalist_data {
+    max-width: 100vw;
+    min-width: 100vw;
+    max-height: 100vh;
+    min-height: 100vh;
+}
+
+.journalist_form {
+    position: relative;
+    top: 30px;
+    margin: auto;
+    width: 20vw;
+
+}
+
+.joinUs__element {
+    height: 3rem;
+    width: 20rem;
+    border-radius: 4px;
+}
+
+.joinUs__textArea {
+    max-width: 20rem;
+    min-width: 20rem;
+    max-height: 20rem;
+    min-height: 5rem;
+}
+
+.joinUs__label {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.joinUs__button {
+    margin-top: 25px;
+}

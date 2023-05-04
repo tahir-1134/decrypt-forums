@@ -3,15 +3,16 @@ import "./Footer.css";
 import { Instagram as InstagramIcon } from "@mui/icons-material";
 import { Facebook as FacebookIcon } from "@mui/icons-material";
 import { Twitter as TwitterIcon } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="login">
       <div className="joinUs">
         <span>Are you a journalist or an editor?</span>
-        <span>
-          <button>Join Us</button>
-        </span>
+          <Link to='/contact'>
+            <button className="joinUs__button">Join Us</button>
+          </Link>
       </div>
       <div className="footer__info">
         <div className="copyright">

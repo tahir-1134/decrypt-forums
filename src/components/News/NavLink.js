@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function NavLink({ catagory, isActive }) {
   return (
     <Link
-      to={`/news/${catagory}`}
+      to={`/news/${catagory.toLowerCase()}`}
       style={{ color: "white", textDecorationLine: isActive?"under-line":"none", textDecorationColor: "#0888FF" }}
     >
       {catagory}

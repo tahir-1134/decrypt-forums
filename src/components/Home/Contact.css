@@ -10,10 +10,22 @@
   gap: 1rem;
 }
 
-.contact__element{
+.contact__element {
   height: 3rem;
   width: 20rem;
   border-radius: 4px;
+}
+
+button.contact__element {
+  cursor: pointer;
+}
+
+.contact__query {
+  max-width: 20rem;
+  min-width: 20rem;
+  max-height: 20rem;
+  min-height: 5rem;
+
 }
 
 @media only screen and (max-width: 400px) {

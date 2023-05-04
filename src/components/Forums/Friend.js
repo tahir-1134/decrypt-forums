@@ -9,6 +9,7 @@ import { selectUser } from "../../features/userSlice";
 function Friend() {
   const [users, setUsers] = useState([]);
   const user = useSelector(selectUser);
+  // console.log(user);
   let friendSuggestions = null;
   // Fetching users
   useEffect(() => {
@@ -30,12 +31,11 @@ function Friend() {
   })[0];
 
   // removing already friends
-  currentUser?.data.friends.forEach((friend) => {
-   friendSuggestions = users.filter((e) => {
+  currentUser?.data?.friends?.forEach((friend) => {
+    friendSuggestions = users.filter((e) => {
       return e.id !== friend.id;
     });
   });
-
   // removing current user before rendering friends list
   friendSuggestions = users.filter((e) => {
     return e.data.authId !== user.uid;
@@ -58,7 +58,7 @@ function Friend() {
     }
   };
 
-// console.log(friendSuggestions);
+  // console.log(friendSuggestions);
 
   return (
     <div className="friend">

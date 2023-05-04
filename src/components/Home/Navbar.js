@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Navbar.css";
+import {Link as InLink} from "react-scroll";
 
 function Navbar() {
-  const navLinks = ["NEWS", "FORUMS", "CONTACT", "LOGIN"];
+  const navLinks = ["HOME","NEWS", "FORUMS", "CONTACT"];
   const [windowStatus, setWindowStatus] = useState(
     window.innerWidth > 900 ? true : false
   );
@@ -37,6 +38,9 @@ function Navbar() {
               <p key={index}>{item}</p>
             </Link>
           ))}
+          <InLink to='login' spy={true} smooth={true} offset={50} duration={500}>
+            LOGIN
+            </InLink> 
         </ul>
       ) : display ? (
         <MenuIcon onClick={displayMenu} />

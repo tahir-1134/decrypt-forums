@@ -13,7 +13,7 @@ function NewsHeader() {
         NEWS
       </h1>
         <div className="newsHeader__links">
-          <Link to="/">
+          <Link to="/home">
             <h3>Home</h3>
           </Link>
           <Link to="/forums">

@@ -6,7 +6,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import PersonIcon from "@mui/icons-material/Person";
 import HeaderOption from "./HeaderOption";
 import { useDispatch, useSelector } from "react-redux";
-import { auth} from "./firebase";
+import { auth } from "./firebase";
 import { logout, selectUser } from "../../features/userSlice";
 import { Link } from "react-router-dom";
 
@@ -34,12 +34,12 @@ function Header() {
         </div>
       </div>
       <div className="header__right">
-        <Link to="/" style={{textDecoration: "none"}}>
+        <Link to="/home" style={{ textDecoration: "none" }}>
           <HeaderOption Icon={HomeIcon} title="Home" />
         </Link>
-        <HeaderOption Icon={QuestionAnswerIcon} title="Explore" />
-        <HeaderOption Icon={NotificationsIcon} title="Notifications" />
-        <HeaderOption Icon={PersonIcon} title="Account" />
+        <Link to="/news">
+          <HeaderOption Icon={QuestionAnswerIcon} title="Explore" />
+        </Link>
         <HeaderOption
           avatar={user?.photoURL}
           title={user ? "Logout" : "Login"}

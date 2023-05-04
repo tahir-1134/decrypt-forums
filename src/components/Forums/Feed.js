@@ -66,6 +66,23 @@ function Feed() {
       op: currentUser,
     });
 
+    const userRef = db.collection("users").doc(currentUser?.id);
+    userRef.update({
+      posts: [
+        ...currentUser?.data.posts,
+        {
+          name: user.displayName,
+          description: user.email,
+          message: input,
+          photoURL: user?.photoURL || "",
+          media: imageUrl,
+          comments: [],
+          likes: [],
+          op: currentUser,
+        },
+      ],
+    });
+
     setInput("");
     setImageUrl("");
   };
@@ -154,7 +171,7 @@ function Feed() {
           )
         )}
       </FlipMove>
-      <Post
+      {/* <Post
         key={12}
         name={"Dummy Post"}
         description={"dummypost@gmail.com"}
@@ -165,10 +182,10 @@ function Feed() {
         media={
           "https://upload.wikimedia.org/wikipedia/commons/e/e4/Latte_and_dark_coffee.jpg"
         }
-        timestamp={'12 days ago'}
+        timestamp={"12 days ago"}
         comments={[]}
         likes={[]}
-      />
+      /> */}
     </div>
   );
 }
